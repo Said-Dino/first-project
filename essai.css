@@ -87,9 +87,10 @@ main p{
 font-size: 20px;
 color: black;
 margin-top: 20px;
+transition: 0.5s ease;
 }
 main p:hover { 
-    font-size: 25px;
+    font-size: 23px;
     text-shadow: 10px 10px 20px black;
 }
 main center img{

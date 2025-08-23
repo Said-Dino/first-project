@@ -1,131 +1,210 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    font-family: "Ubuntu", serif;
-}
-header{
-    width: 100%;
-    height: 70px;
-    background-color:green;
-    box-shadow: 0px 0px 12px black;
-}
-header button{
-    width: 140px;
-    padding: 10px;
-    margin-top: 12px;
-    border: none;
-    background: none;
-    color: white;
-    outline: none;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 0px 0px 8px rgba(128, 128, 128, 0);
-}
-header button:hover{
-    color:wheat;
-    box-shadow: 0px 0px 15px wheat;
 
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
 }
-header img{
-    width: 77px;
-    float:left;
-    margin-left: 8px;
+body {
+  line-height: 1.5;
+  color: #111;
+  background-color: #f9f9f9;
 }
-#ab{
-width: 100%;
-height: 568px;
+
+/* HEADER */
+header {
+  width: 100%;
+  background-color: green;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
 }
-marquee{
-    position:absolute;
-    top:200px;
-    left:100px;
-    color: rgb(5, 57, 5);
+header img {
+  width: 60px;
+}
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+header button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+header button:hover {
+  color: wheat;
+  text-shadow: 0 0 8px wheat;
+}
+
+/* HERO / MARQUEE */
+#ab {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f5e9;
+  position: relative;
+}
+#ab marquee {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgb(5, 57, 5);
+}
+
+/* LAYOUT (MAIN + ASIDE) */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 400px;
+}
+main {
+  flex: 1 1 70%;
+  padding: 1rem;
+  background: rgba(8,116,8,0.1);
+}
+aside {
+  flex: 1 1 30%;
+  background: rgba(8,116,8,0.2);
+  display: flex;
+  flex-direction: column;
+}
+aside button {
+  padding: 1rem;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: 0.3s;
+}
+aside button:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* MAIN CONTENT */
+main h2 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+main p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: 0.3s;
+}
+main p:hover {
+  font-size: 1.05rem;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+main img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CARDS (PROJETS) */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;              /* espace horizontal + vertical */
+  padding: 2rem 0;
+}
+.card {
+  width: 260px;
+  min-height: 300px;
+  border: 1px solid wheat;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin: 1rem 0;         /* ✅ marge verticale */
+  background: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(5, 75, 5, 0.4);
+}
+
+/* FOOTER */
+footer {
+  background: rgb(233, 196, 103);
+  padding: 1rem;
+}
+footer ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+footer li a {
+  text-decoration: none;
+  color: #111;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+footer li a:hover {
+  color: green;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+
+/* Tablette */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+  }
+  aside {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  aside button {
+    flex: 1;
+    white-space: nowrap;
+  }
+  main {
+    flex: 1;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
     text-align: center;
-    font-size: 60px;
-    width: 80%;
-    margin: auto;
-    height: 200px;
+  }
+  #ab marquee {
+    font-size: 1.5rem;
+  }
+  main h2 {
+    font-size: 1.2rem;
+  }
+  main p {
+    font-size: 0.9rem;
+  }
+  .cards {
+    gap: 1rem;
+  }
+  .card {
+    width: 90%;
+  }
+  footer ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
-aside{
-    width: 13%;
-    height: 400px;
-    background: rgba(8, 116, 8, 0.5);
-    float: right;
-    margin-top: -3px;
-}
-aside button{
-    width: 100%;
-    height: 50px;
-    font-size: 18px;
-    background: none;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    
-}
-aside button:hover{
-    color: black;
-    box-shadow: 0px 0px 10px wheat;
-}
-main{
-    width: 87%;
-    height: 400px;
-    background-color: rgba(8, 116, 8, 0.5);
-    margin-top: -3px;
-    float: left;
-}
-main h2{
-margin-top: 20px;
-font-size: 35px;
-text-transform: uppercase;
-font-weight: bold;
-color: black;
-}
-main p{
-font-size: 20px;
-color: black;
-margin-top: 20px;
-transition: 0.5s ease;
-}
-main p:hover { 
-    font-size: 23px;
-    text-shadow: 10px 10px 20px black;
-}
-main center img{
-    width: 20%;
-    margin-top: 20px;
-}
-
-#id .davv{
-    height: 350px;
-    width: 274px;
-    border: 1px solid wheat;
-    font-size: 13px;
-    font-weight: bold; box-shadow: 1px 1px 12px gray;
-    float: left;
-    margin-left: 130px;
-    margin-top: 60px; margin-bottom: 60px;
-}
-#id .davv:hover{
-    box-shadow: 2px 2px 15px rgba(5, 75, 5, 0.959);
-}
-footer{
-    clear:both;
-    height: 60px;
-    width: 100%;
-    background-color: rgb(233, 196, 103);
-}
-ul{
-    display:flex; justify-content: center;
-}
-li {
-    display: flex;
-    margin-inline:100px;
-    padding-top: 10px;
-}
-li a p{
-    color:black; font-size: 18px;
-}
-
